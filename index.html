@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillSense</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      
+      /* Animation for panning the milky way background */
+      @keyframes milky-way-pan {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .animate-milky-way-pan {
+        animation: milky-way-pan 60s ease-in-out infinite;
+      }
+      
+      /* Animation for the chatbot pop-up */
+      @keyframes fade-in-up {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+      }
+      .animate-fade-in-up {
+          animation: fade-in-up 0.5s ease-out forwards;
+      }
+
+      /* Raindrop effect */
+      .raindrop {
+        position: absolute;
+        bottom: 100%;
+        width: 1.5px;
+        pointer-events: none;
+        background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4));
+        animation: rain-fall linear infinite;
+      }
+      
+      @keyframes rain-fall {
+        to {
+            transform: translateY(120vh);
+            opacity: 0;
+        }
+      }
+
+      /* Lightning effect */
+      .lightning {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: radial-gradient(ellipse at center, rgba(200,200,255,0.8) 0%,rgba(200,200,255,0) 70%);
+        opacity: 0;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      @keyframes lightning-flash {
+        0%, 100% { opacity: 0; }
+        5.0% { opacity: 0; }
+        5.1% { opacity: 0.9; }
+        5.3% { opacity: 0.1; }
+        5.5% { opacity: 0.7; }
+        6.0% { opacity: 0; }
+        50.0% { opacity: 0; }
+        50.1% { opacity: 0.8; }
+        50.2% { opacity: 0; }
+        50.5% { opacity: 0.5; }
+        51.0% { opacity: 0; }
+      }
+
+      /* Welcome content animations */
+      @keyframes fade-in-slide-up {
+          from {
+              opacity: 0;
+              transform: translateY(30px) scale(0.98);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0) scale(1);
+          }
+      }
+
+      .animate-fade-in-slide-up {
+          animation: fade-in-slide-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      }
+
+      /* Starry Sky Background */
+      @keyframes twinkle {
+        0%, 100% { opacity: 0.4; transform: scale(0.95); }
+        50% { opacity: 1; transform: scale(1.05); }
+      }
+
+      .star {
+        position: absolute;
+        background-color: white;
+        border-radius: 50%;
+        animation-name: twinkle;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        box-shadow: 0 0 4px #fff, 0 0 8px #fff;
+      }
+
+      @keyframes shooting-star-move {
+        0% {
+          transform: translateX(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(-150vw);
+          opacity: 0;
+        }
+      }
+
+      .shooting-star-wrapper {
+        position: absolute;
+        width: 150vw; /* Wide enough to cross screen */
+        height: 2px;
+        transform-origin: left center;
+        animation-name: shooting-star-move;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+
+      .shooting-star {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 150px; /* The tail length */
+        height: 2px;
+        background: linear-gradient(to right, white, transparent);
+        border-radius: 1px;
+        filter: drop-shadow(0 0 6px white);
+      }
+      
+      /* Future Skill Card Glow Effect on Hover */
+      .future-skill-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .future-skill-card:hover {
+          box-shadow: 0 0 20px rgba(236, 72, 153, 0.3), 0 0 40px rgba(139, 92, 246, 0.2);
+          transform: translateY(-5px);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

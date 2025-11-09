@@ -1,0 +1,5 @@
+{
+  "name": "SkillSense",
+  "description": "An AI-powered application to identify, analyze, and manage personal and professional skills by aggregating data from multiple sources like CVs, performance reviews, and online profiles.",
+  "requestFramePermissions": []
+}
