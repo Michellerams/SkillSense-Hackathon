@@ -2,7 +2,7 @@
 
 **SkillSense** is an AI-powered skill intelligence platform designed to help professionals identify, analyze, and manage their career growth. By aggregating data from CVs, performance reviews, and online profiles, SkillSense provides a comprehensive view of your professional DNA.
 
-![SkillSense Banner](https://picsum.photos/seed/skillsense/1200/400)
+
 
 ## ✨ Key Features
 
