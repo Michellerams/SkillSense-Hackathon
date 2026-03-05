@@ -44,18 +44,12 @@
    npm install
    ```
 
-3. **Set up Environment Variables**
-   Create a `.env` file in the root directory and add your Gemini API key:
-   ```env
-   GEMINI_API_KEY=your_api_key_here
-   ```
-
-4. **Start the development server**
+3. **Start the development server**
    ```bash
    npm run dev
    ```
 
-5. **Build for production**
+4. **Build for production**
    ```bash
    npm run build
    ```
